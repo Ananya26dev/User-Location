@@ -55,7 +55,7 @@ const UserLocation = () => {
             </button>
           </div>
         </div>
-        {ipaddress && geolocation && (
+        {ipaddress && geolocation.country && (
           <div className="card bg-success" style={{ width: "30rem" }}>
             <div className="card-header text-white fw-bold">IP Geolocation</div>
             <ul className="list-group list-group-flush">
@@ -72,6 +72,11 @@ const UserLocation = () => {
                 {geolocation.city}
               </li>
             </ul>
+          </div>
+        )}
+        {ipaddress && !geolocation.country && (
+          <div className="card bg-danger" style={{ width: "30rem" }}>
+            <div className="card-header text-white fw-bold">No Data Found!</div>
           </div>
         )}
       </div>
